@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import federation from '@originjs/vite-plugin-federation'
 
 export default defineConfig({
+  base: 'http://localhost:5173/',
   plugins: [
     react(),
     tailwindcss(), 

@@ -1,0 +1,20 @@
+services:
+  remote-app:
+    build: ./remote-app
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    # volumes:
+    #   - ./remote-app/src:/app/src
+
+  host-app:
+    build: ./host-app
+    ports:
+      - "5174:5174"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    # volumes:
+    #   - ./host-app/src:/app/src
+    depends_on:
+      - remote-app
